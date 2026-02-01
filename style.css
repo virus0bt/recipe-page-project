@@ -1,3 +1,148 @@
+@font-face {
+  font-family: "Young Serif";
+  src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf")
+    format("truetype-variations");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
+    format("truetype-variations");
+  font-weight: 400 700;
+  font-style: normal;
+}
+
+/* || RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* || VARIABLES */
+
+:root {
+  /* FONTS */
+
+  --h1-size-mobile: calc(36 / 16 * 1rem);
+  --h1-size-desktop: calc(40 / 16 * 1rem);
+  --h2-size: calc(28 / 16 * 1rem);
+  --h3-size: calc(20 / 16 * 1rem);
+  --p-size: calc(16 / 16 * 1rem);
+
+  --h-lh: 1;
+  --p-lh: 1.5;
+
+  --h-ls: 0;
+  --p-ls: 0;
+
+  --p-weight: 400;
+
+  /* COLORS */
+
+  --c-brown-800: hsl(14, 45%, 36%);
+  --c-rose-800: hsl(332, 51%, 32%);
+  --c-rose-50: hsl(330, 100%, 98%);
+  --c-stone-900: hsl(24, 5%, 18%);
+  --c-stone-600: hsl(30, 10%, 34%);
+  --c-stone-150: hsl(30, 18%, 87%);
+  --c-stone-100: hsl(30, 54%, 90%);
+  --c-white: hsl(0, 0%, 100%);
+
+  /* SPACINGS */
+
+  --space-100: calc(8 / 16 * 1rem);
+  --space-150: calc(12 / 16 * 1rem);
+  --space-200: calc(16 / 16 * 1rem);
+  --space-300: calc(24 / 16 * 1rem);
+  --space-400: calc(32 / 16 * 1rem);
+  --space-500: calc(40 / 16 * 1rem);
+  --space-600: calc(48 / 16 * 1rem);
+  --space-1600: calc(128 / 16 * 1rem);
+}
+
+/* || GENERAL STYLES */
+
+html {
+  font-family: "Outfit", sans-serif;
+  font-size: var(--p-size);
+  font-weight: var(--p-weight);
+  line-height: 1.5;
+}
+
+h1,
+h2 {
+  font-family: "Young Serif", serif;
+  line-height: var(--h-lh);
+  letter-spacing: var(--h-ls);
+}
+
+h1 {
+  font-size: var(--h1-size-mobile);
+}
+
+h2 {
+  font-size: var(--h2-size);
+}
+
+h3 {
+  font-size: var(--h3-size);
+  line-height: var(--h-lh);
+  font-weight: 600;
+}
+
+ul,
+ol {
+  list-style-position: inside;
+}
+
+body {
+  background-color: var(--c-stone-100);
+  min-height: 100vh;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* || BLOCKS */
+
+.recipe {
+  width: 375px;
+  background-color: var(--c-white);
+}
+
+.recipe__image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.recipe__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400);
+  padding-inline: var(--space-400);
+  padding-block: var(--space-500);
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
