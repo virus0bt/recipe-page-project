@@ -118,7 +118,7 @@ ul {
 
   li {
     position: relative;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
 
   li:last-child {
@@ -158,16 +158,43 @@ body {
 /* || BLOCKS */
 
 .recipe {
-  width: 375px;
-  margin: 0 auto;
+  /* width: 375px; */
+  width: clamp(23.44rem, 61.32vw + 9.06rem, 38.5rem);
+  /* margin: 0 auto; */
+  margin-block: clamp(0rem, 32.57vw - 7.6rem, 8rem);
+  margin-inline: auto;
   background-color: var(--c-white);
+
+  @media (width >= calc(400 / 16 * 1rem)) {
+    border-radius: clamp(0rem, -1.431rem + 6.107vw, 1.5rem);
+  }
+
+  @media (width >= calc(768 / 16 * 1rem)) {
+    width: clamp(38.5rem, 29.929rem + 17.857vw, 46rem);
+  }
+}
+
+.recipe__figure {
+  display: flex;
 }
 
 .recipe__image {
-  max-width: 100%;
+  /* max-width: 100%; */
+  width: clamp(23.44rem, 40.97vw + 13.84rem, 33.5rem);
   height: auto;
   display: block;
   object-fit: contain;
+  margin-inline: auto;
+  margin-top: clamp(0rem, -2.385rem + 10.178vw, 2.5rem);
+  /* padding-top: clamp(0rem, -2.385rem + 10.178vw, 2.5rem); */
+
+  @media (width >= calc(400 / 16 * 1rem)) {
+    border-radius: clamp(0rem, -0.716rem + 3.053vw, 0.75rem);
+  }
+
+  @media (width >= calc(768 / 16 * 1rem)) {
+    width: clamp(33.5rem, 24.929rem + 17.857vw, 41rem);
+  }
 }
 
 .recipe__content {
