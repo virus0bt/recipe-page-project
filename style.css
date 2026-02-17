@@ -1,7 +1,311 @@
+@font-face {
+  font-family: "Young Serif";
+  src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf")
+    format("truetype-variations");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
+    format("truetype-variations");
+  font-weight: 400 700;
+  font-style: normal;
+}
+
+/* || RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* || VARIABLES */
+
+:root {
+  /* FONTS */
+
+  --h1-size-mobile: calc(36 / 16 * 1rem);
+  --h1-size-desktop: calc(40 / 16 * 1rem);
+  --h2-size: calc(28 / 16 * 1rem);
+  --h3-size: calc(20 / 16 * 1rem);
+  --p-size: calc(16 / 16 * 1rem);
+  --p-size-attribution: calc(11 / 16 * 1rem);
+
+  --h-lh: 1;
+  --p-lh: 1.5;
+
+  --h-ls: 0;
+  --p-ls: 0;
+
+  --weight-regular: 400;
+  --weight-semi: 600;
+  --weight-bold: 700;
+
+  /* COLORS */
+
+  --c-brown-800: hsl(14, 45%, 36%);
+  --c-rose-800: hsl(332, 51%, 32%);
+  --c-rose-50: hsl(330, 100%, 98%);
+  --c-stone-900: hsl(24, 5%, 18%);
+  --c-stone-600: hsl(30, 10%, 34%);
+  --c-stone-150: hsl(30, 18%, 87%);
+  --c-stone-100: hsl(30, 54%, 90%);
+  --c-white: hsl(0, 0%, 100%);
+
+  /* SPACINGS */
+
+  --space-100: calc(8 / 16 * 1rem);
+  --space-150: calc(12 / 16 * 1rem);
+  --space-200: calc(16 / 16 * 1rem);
+  --space-250: calc(20 / 16 * 1rem);
+  --space-300: calc(24 / 16 * 1rem);
+  --space-400: calc(32 / 16 * 1rem);
+  --space-500: calc(40 / 16 * 1rem);
+  --space-600: calc(48 / 16 * 1rem);
+  --space-1600: calc(128 / 16 * 1rem);
+}
+
+/* || GENERAL STYLES */
+
+html {
+  font-family: "Outfit", sans-serif;
+  font-size: var(--p-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--p-lh);
+  color: var(--c-stone-600);
+  text-align: left;
+}
+
+h1,
+h2 {
+  font-family: "Young Serif", serif;
+  line-height: var(--h-lh);
+  letter-spacing: var(--h-ls);
+}
+
+h1 {
+  font-size: var(--h1-size-mobile);
+  font-size: clamp(
+    var(--h1-size-mobile),
+    2.011rem + 1.018vw,
+    var(--h1-size-desktop)
+  );
+  color: var(--c-stone-900);
+}
+
+h2 {
+  font-size: var(--h2-size);
+  color: var(--c-brown-800);
+}
+
+h3 {
+  font-size: var(--h3-size);
+  line-height: var(--h-lh);
+  font-weight: var(--weight-semi);
+  color: var(--c-rose-800);
+}
+
+ul,
+ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+  align-items: start;
+  list-style-position: inside;
+}
+
+ul {
+  list-style-type: none;
+
+  li {
+    position: relative;
+  }
+
+  li:last-child {
+    margin-bottom: 0px;
+  }
+
+  li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: var(--c-rose-800);
+    border-radius: 50%;
+  }
+}
+
+body {
+  background-color: var(--c-stone-100);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* || BLOCKS */
+
+.recipe {
+  width: clamp(23.44rem, 61.32vw + 9.06rem, 38.5rem);
+  margin-block: clamp(0rem, 32.57vw - 7.6rem, 8rem);
+  margin-inline: auto;
+  background-color: var(--c-white);
+
+  @media (width >= calc(400 / 16 * 1rem)) {
+    border-radius: clamp(0rem, -1.431rem + 6.107vw, 1.5rem);
+  }
+
+  @media (width >= calc(768 / 16 * 1rem)) {
+    width: clamp(38.5rem, 29.929rem + 17.857vw, 46rem);
+  }
+}
+
+.recipe__figure {
+  display: flex;
+}
+
+.recipe__image {
+  width: clamp(23.44rem, 40.97vw + 13.84rem, 33.5rem);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin-inline: auto;
+  margin-top: clamp(0rem, -2.385rem + 10.178vw, 2.5rem);
+
+  @media (width >= calc(400 / 16 * 1rem)) {
+    border-radius: clamp(0rem, -0.716rem + 3.053vw, 0.75rem);
+  }
+
+  @media (width >= calc(768 / 16 * 1rem)) {
+    width: clamp(33.5rem, 24.929rem + 17.857vw, 41rem);
+  }
+}
+
+.recipe__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400);
+  padding-inline: var(--space-400);
+  padding-block: var(--space-500);
+}
+
+.recipe__title {
+  padding-bottom: var(--space-300);
+}
+
+.recipe__timing {
+  background-color: var(--c-rose-50);
+  padding: var(--space-300);
+  border-radius: var(--space-150);
+}
+.recipe__timing-list {
+  margin-top: var(--space-200);
+  margin-left: var(--space-100);
+  list-style-position: outside;
+
+  li {
+    padding-left: var(--space-400);
+  }
+}
+
+.recipe__ingredients-list {
+  margin-top: var(--space-300);
+  margin-left: var(--space-100);
+  list-style-position: outside;
+
+  li {
+    padding-left: var(--space-400);
+  }
+
+  li::marker {
+    color: var(--c-rose-800);
+    font-size: 0.75rem;
+    padding-right: var(--space-250);
+  }
+}
+.recipe__divider {
+  height: 1px;
+  color: var(--c-stone-150);
+}
+
+.recipe__instructions-list {
+  margin-top: var(--space-300);
+  margin-left: var(--space-300);
+  list-style-position: outside;
+
+  li {
+    padding-left: var(--space-300);
+  }
+
+  li::marker {
+    color: var(--c-rose-800);
+    font-weight: var(--weight-bold);
+  }
+}
+
+.recipe__nutrition-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding-block: var(--space-150);
+    border-bottom: 1px solid var(--c-stone-150);
+    text-align: left;
+  }
+
+  tr:last-child td,
+  tr:last-child th {
+    border-bottom: none;
+  }
+
+  th {
+    padding-left: var(--space-400);
+    font-weight: var(--weight-regular);
+  }
+
+  td {
+    font-weight: var(--weight-bold);
+    color: var(--c-brown-800);
+    padding-right: var(--space-400);
+  }
+
+  caption {
+    text-align: left;
+    margin-block: var(--space-300) var(--space-150);
+  }
+}
+
 .attribution {
-  font-size: 11px;
+  font-size: var(--p-size-attribution);
+  color: var(--c-stone-900);
   text-align: center;
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--c-rose-800);
+  text-decoration: underline;
+  transition: background-color 200ms ease-in-out;
+
+  &:hover {
+    background-color: var(--c-rose-50);
+  }
 }
