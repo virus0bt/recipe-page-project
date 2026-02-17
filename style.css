@@ -37,6 +37,7 @@
   --h2-size: calc(28 / 16 * 1rem);
   --h3-size: calc(20 / 16 * 1rem);
   --p-size: calc(16 / 16 * 1rem);
+  --p-size-attribution: calc(11 / 16 * 1rem);
 
   --h-lh: 1;
   --p-lh: 1.5;
@@ -44,7 +45,9 @@
   --h-ls: 0;
   --p-ls: 0;
 
-  --p-weight: 400;
+  --weight-regular: 400;
+  --weight-semi: 600;
+  --weight-bold: 700;
 
   /* COLORS */
 
@@ -62,6 +65,7 @@
   --space-100: calc(8 / 16 * 1rem);
   --space-150: calc(12 / 16 * 1rem);
   --space-200: calc(16 / 16 * 1rem);
+  --space-250: calc(20 / 16 * 1rem);
   --space-300: calc(24 / 16 * 1rem);
   --space-400: calc(32 / 16 * 1rem);
   --space-500: calc(40 / 16 * 1rem);
@@ -74,8 +78,8 @@
 html {
   font-family: "Outfit", sans-serif;
   font-size: var(--p-size);
-  font-weight: var(--p-weight);
-  line-height: 1.5;
+  font-weight: var(--weight-regular);
+  line-height: var(--p-lh);
   color: var(--c-stone-600);
   text-align: left;
 }
@@ -89,6 +93,11 @@ h2 {
 
 h1 {
   font-size: var(--h1-size-mobile);
+  font-size: clamp(
+    var(--h1-size-mobile),
+    2.011rem + 1.018vw,
+    var(--h1-size-desktop)
+  );
   color: var(--c-stone-900);
 }
 
@@ -100,7 +109,7 @@ h2 {
 h3 {
   font-size: var(--h3-size);
   line-height: var(--h-lh);
-  font-weight: 600;
+  font-weight: var(--weight-semi);
   color: var(--c-rose-800);
 }
 
@@ -118,7 +127,6 @@ ul {
 
   li {
     position: relative;
-    /* margin-bottom: 10px; */
   }
 
   li:last-child {
@@ -140,7 +148,6 @@ ul {
 
 body {
   background-color: var(--c-stone-100);
-  min-height: 100vh;
 }
 
 .visually-hidden {
@@ -158,9 +165,7 @@ body {
 /* || BLOCKS */
 
 .recipe {
-  /* width: 375px; */
   width: clamp(23.44rem, 61.32vw + 9.06rem, 38.5rem);
-  /* margin: 0 auto; */
   margin-block: clamp(0rem, 32.57vw - 7.6rem, 8rem);
   margin-inline: auto;
   background-color: var(--c-white);
@@ -179,14 +184,12 @@ body {
 }
 
 .recipe__image {
-  /* max-width: 100%; */
   width: clamp(23.44rem, 40.97vw + 13.84rem, 33.5rem);
   height: auto;
   display: block;
   object-fit: contain;
   margin-inline: auto;
   margin-top: clamp(0rem, -2.385rem + 10.178vw, 2.5rem);
-  /* padding-top: clamp(0rem, -2.385rem + 10.178vw, 2.5rem); */
 
   @media (width >= calc(400 / 16 * 1rem)) {
     border-radius: clamp(0rem, -0.716rem + 3.053vw, 0.75rem);
@@ -205,14 +208,10 @@ body {
   padding-block: var(--space-500);
 }
 
-.recipe__header {
-}
-
 .recipe__title {
   padding-bottom: var(--space-300);
 }
-.recipe__description {
-}
+
 .recipe__timing {
   background-color: var(--c-rose-50);
   padding: var(--space-300);
@@ -227,8 +226,7 @@ body {
     padding-left: var(--space-400);
   }
 }
-.recipe__ingredients {
-}
+
 .recipe__ingredients-list {
   margin-top: var(--space-300);
   margin-left: var(--space-100);
@@ -241,15 +239,14 @@ body {
   li::marker {
     color: var(--c-rose-800);
     font-size: 0.75rem;
-    padding-right: 20px;
+    padding-right: var(--space-250);
   }
 }
 .recipe__divider {
   height: 1px;
   color: var(--c-stone-150);
 }
-.recipe__instructions {
-}
+
 .recipe__instructions-list {
   margin-top: var(--space-300);
   margin-left: var(--space-300);
@@ -261,10 +258,8 @@ body {
 
   li::marker {
     color: var(--c-rose-800);
-    font-weight: 700;
+    font-weight: var(--weight-bold);
   }
-}
-.recipe__nutrition {
 }
 
 .recipe__nutrition-table {
@@ -273,7 +268,7 @@ body {
 
   th,
   td {
-    padding: 12px 0;
+    padding-block: var(--space-150);
     border-bottom: 1px solid var(--c-stone-150);
     text-align: left;
   }
@@ -284,26 +279,33 @@ body {
   }
 
   th {
-    padding-left: 32px;
-    font-weight: 400;
+    padding-left: var(--space-400);
+    font-weight: var(--weight-regular);
   }
 
   td {
-    font-weight: 700;
+    font-weight: var(--weight-bold);
     color: var(--c-brown-800);
-    padding-right: 32px;
+    padding-right: var(--space-400);
   }
 
   caption {
     text-align: left;
-    margin-block: 24px 12px;
+    margin-block: var(--space-300) var(--space-150);
   }
 }
 
 .attribution {
-  font-size: 11px;
+  font-size: var(--p-size-attribution);
+  color: var(--c-stone-900);
   text-align: center;
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--c-rose-800);
+  text-decoration: underline;
+  transition: background-color 200ms ease-in-out;
+
+  &:hover {
+    background-color: var(--c-rose-50);
+  }
 }
