@@ -59,6 +59,7 @@
   --c-stone-150: hsl(30, 18%, 87%);
   --c-stone-100: hsl(30, 54%, 90%);
   --c-white: hsl(0, 0%, 100%);
+  --c-orange: hsl(39, 100%, 50%);
 
   /* SPACINGS */
 
@@ -130,7 +131,7 @@ ul {
   }
 
   li:last-child {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 
   li::before {
@@ -187,7 +188,6 @@ body {
   width: clamp(23.44rem, 40.97vw + 13.84rem, 33.5rem);
   height: auto;
   display: block;
-  object-fit: contain;
   margin-inline: auto;
   margin-top: clamp(0rem, -2.385rem + 10.178vw, 2.5rem);
 
@@ -303,9 +303,9 @@ body {
 .attribution a {
   color: var(--c-rose-800);
   text-decoration: underline;
-  transition: background-color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 
   &:hover {
-    background-color: var(--c-rose-50);
+    color: var(--c-orange);
   }
 }
